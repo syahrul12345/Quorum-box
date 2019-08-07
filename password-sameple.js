@@ -1,6 +1,6 @@
 /**
 @notice Rename this file to password.js. It should be the gitignore file.
-@dev
+@dev Quickly deploy a quorum node @ console.chainstack.com
 **/
 
 module.exports = {
