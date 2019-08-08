@@ -7,7 +7,7 @@
 					:outline="true"
 					:hover="false"
 					dark>
-						HELLO
+						<p> Contracts </p>
 					</v-card>
   			</v-flex>
 			
@@ -22,3 +22,9 @@ export default {
   
 };
 </script>
+
+<style>
+  p{
+    padding-left: 10px;
+  }
+</style>
