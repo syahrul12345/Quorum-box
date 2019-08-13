@@ -34,6 +34,7 @@
 </template>
 <script>
 	import FunctionInput from './FunctionInput.vue'
+	import { main,sign } from './../utils/deploy.js'
 	export default {
 		props:['functionInfo'],
 		components:{
@@ -52,9 +53,20 @@
 				var values = this.$refs.inputChild.getValues()
 				//we need to check if the inputs are equal
 				if(values.length == this.functionInfo.inputs.length) {
-					console.log("length match, can send to web3")
+					const index = values.findIndex(e => e.data === '')
+					//this means a zero value exists
+					if(index != -1) {
+						values.splice(index,1)
+					}
+					main(this.functionInfo,values).then((result) => {
+						console.log(result)
+						console.log(sign(result,"0x3aDE7C2603FD90E8bB11D2ae0266D1C2DB1E3b81"))
+					}).catch((error) => {
+						console.log(error)
+					})
+					
 				}else {
-					console.log("length mismatch")
+					console.log("doesnt meet requirements!")
 				}
 			
 

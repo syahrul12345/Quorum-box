@@ -3,11 +3,12 @@
 		<v-flex xs1>
 			{{input.name}}
 		</v-flex>
-		<v-flex xs11>
+		<v-flex xs4>
 			<v-text-field
 			:label="input.type"
 			v-model="data"
-			@input="$emit('update-field',{name:input.name,data:data})">
+			@input="$emit('update-field',{name:input.name,data:data})"
+			>
 			 </v-text-field>
 		</v-flex>
 	</v-layout>

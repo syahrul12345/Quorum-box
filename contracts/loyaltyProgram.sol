@@ -3,6 +3,8 @@ pragma solidity ^0.5.0;
 contract loyaltyProgram {
     mapping (address => uint) private balances;
     address public owner;
+    string name;
+    uint number;
 
     constructor() public payable {
         /* Set the owner to the creator of this contract */
@@ -20,6 +22,8 @@ contract loyaltyProgram {
         return balances[msg.sender];
     }
     function test(string memory _name, uint _number) public {
+        name = _name;
+        number= _number;
         join();
     }
 }

@@ -40,7 +40,6 @@
 				//first lets find if the object key exists
 				let item = this.values.find(e => e.name === value.name)
 				if(item === undefined) {
-					console.log("it doesnt exist")
 					this.values.push(value)
 				}else {
 					var index = this.values.findIndex(e => e.name === value.name)
