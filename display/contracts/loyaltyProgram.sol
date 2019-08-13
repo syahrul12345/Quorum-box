@@ -19,7 +19,4 @@ contract loyaltyProgram {
     function balance() public view returns (uint) {
         return balances[msg.sender];
     }
-    function test(string memory _name, uint _number) public {
-        join();
-    }
 }
