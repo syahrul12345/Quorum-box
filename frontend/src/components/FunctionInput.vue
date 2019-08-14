@@ -8,14 +8,7 @@
 					</v-flex> 
 				</v-layout>
 			</v-container>
-			<v-flex xs12>
-				<v-card
-				:outline="true"
-				:hover="false"
-				:text="true">
-					<v-card-title id="txInfo">Transaction Hash: </v-card-title>
-				</v-card>
-			</v-flex>
+			
 		</v-layout>
 	</v-container>
 </template>

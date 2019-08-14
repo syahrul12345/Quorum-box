@@ -12,7 +12,7 @@
           </v-flex>
           <v-flex xs12>
           <Contract
-          :contract="contractABI"></Contract>
+          :contract="contractABI" :address="contractAddress"></Contract>
         </v-flex>
       </v-layout>
     </v-container>
@@ -27,8 +27,18 @@ export default {
     Contract
   },
   data:() => ({
-    contractABI: json.abi
-  })
+    contractABI: json.abi,
+    contractAddress:json.networks
+  }),
+  mounted() {
+
+   // console.log(this.contractAddress)
+   for(var i in this.contractAddress) {
+      const networkId = i
+      this.contractAddress = this.contractAddress[i].address
+   }
+    
+  }
 };
 </script>
 
