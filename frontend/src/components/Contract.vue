@@ -8,7 +8,7 @@
 				dark>
 					<p style="padding-left: 10px;font-size:20px"> Art </p>
 					<Tabbed
-					:contract="contract"></Tabbed>
+					:contract="contract" :contractAddress="address"></Tabbed>
 				</v-card>
 			</v-flex>
 		</v-layout>
@@ -18,11 +18,12 @@
 	import Call from './Call.vue'
 	import Tabbed from './Tabbed.vue'
 	export default {
-		props:['contract'],
+		props:['contract','address'],
 		components: {
 			Call,
 			Tabbed
 		},
+
 	}
 </script>
 <style></style>

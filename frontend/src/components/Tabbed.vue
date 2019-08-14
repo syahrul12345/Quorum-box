@@ -14,7 +14,7 @@
 				<v-container grid-list-xl v-if="tab.name == 'interact'">
 					<v-layout wrap>
 						<v-flex xs12 v-for="call in contractABI">
-							<Function :functionInfo = "call"></Function>
+							<Function :functionInfo = "call" :contractAddress ="contractAddress"></Function>
 						</v-flex>
 					</v-layout>
 				</v-container>
@@ -28,7 +28,7 @@
 	import Function from "./Function.vue"
 	
 	export default {
-		props:['contract'],
+		props:['contract','contractAddress'],
 		components: {
 			Function
 		},
