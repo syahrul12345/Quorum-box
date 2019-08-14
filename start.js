@@ -28,7 +28,6 @@ app.use(function(req, res, next) {
 **/
 app.post('/send',async(req,res) => {
 	try{
-		console.log("signing")
 		const body = req.body
 		const signedMessage = await web3.eth.accounts.signTransaction({
 			to:body.contractAddress,
@@ -47,6 +46,7 @@ app.post('/send',async(req,res) => {
 		})
 
 	}catch (ex){
+		console.log(ex.toString())
 		res.send(ex.toString())
 		//res.send("No payload to send transaction")
 	}

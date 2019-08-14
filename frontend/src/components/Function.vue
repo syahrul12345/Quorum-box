@@ -22,18 +22,19 @@
 								@click.stop="sendTransaction">send</v-btn>
 							</v-card-title>
 						</v-flex>
-						<v-flex xs12>
+						<v-flex v-if="functionInfo.inputs.length != 0" xs12>
 							<FunctionInput :inputs="functionInfo.inputs" ref="inputChild"></FunctionInput>
 						</v-flex>
 						<v-flex xs12>
+							<p id="errorText" v-if="error"> {{error}}</p>
 							<v-card
 							:outline="true"
 							:hover="false"
 							:text="true">
-								<v-card-title id="txInfo">
 									<v-list
 									:flat="true">
-										<v-card-title> Transaction hashes: </v-card-title>
+										<v-card-title v-if="functionInfo.inputs.length != 0"> Transaction hashes: </v-card-title>
+										<v-card-title v-if="functionInfo.inputs.length == 0">Result: </v-card-title>
 										<v-list-item-group v-model="transactionList.length">
 											<v-list-item 
 											v-for="(transaction,i) in transactionList"
@@ -44,7 +45,6 @@
 											</v-list-item>
 										</v-list-item-group>
 									</v-list>
-								</v-card-title>
 							</v-card>
 						</v-flex>
 					</v-layout>
@@ -67,6 +67,7 @@
 				message:null,
 				transactionList:[],
 				explorerUrl:null,
+				error:null
 			}
 		},
 		mounted: function() {
@@ -83,9 +84,15 @@
 					if(index != -1) {
 						values.splice(index,1)
 					}
+
 					send(this.functionInfo,this.contractAddress,values).then((result) => {
-						this.transactionList.push(result.data[0])
-						this.explorerUrl = result.data[1]
+						try{
+							this.transactionList.push(result.data[0])
+							this.explorerUrl = result.data[1]
+							this.error = null
+						}catch(ex) {
+							this.error = result
+						}
 					})
 
 				}else {
