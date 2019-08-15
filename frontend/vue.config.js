@@ -29,7 +29,8 @@ module.exports = {
           			if(err) {
           				console.log("failed to save contract data to contract.json")
           			}else {
-          				console.log("succesfully saved it!")
+                  console.log("\n")
+          				console.log("succesfully saved all contracts into single JSON")
           			}
           		})
           	}
