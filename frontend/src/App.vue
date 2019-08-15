@@ -5,7 +5,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'App',
   components: {
@@ -13,6 +12,7 @@ export default {
   },
   data: () => ({
     
-  }),
+  })
+
 };
 </script>

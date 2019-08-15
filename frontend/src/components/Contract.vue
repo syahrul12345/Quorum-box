@@ -6,9 +6,11 @@
 				:outline="true"
 				:hover="false"
 				dark>
-					<p style="padding-left: 10px;font-size:20px"> Art </p>
+					<div><p style="padding-left: 10px;font-size:20px"> {{name}} </p></div>
+					<div><p style="padding-left: 10px;font-size:20px"> Deployed at: {{contractAddress}} </p></div>
+					
 					<Tabbed
-					:contract="contract" :contractAddress="address"></Tabbed>
+					:contract="contract" :contractAddress="contractAddress"></Tabbed>
 				</v-card>
 			</v-flex>
 		</v-layout>
@@ -18,11 +20,22 @@
 	import Call from './Call.vue'
 	import Tabbed from './Tabbed.vue'
 	export default {
-		props:['contract','address'],
+		props:['name','contract','networks'],
 		components: {
 			Call,
 			Tabbed
 		},
+		data() {
+			return {
+				contractAddress:null 
+			}
+		},
+		mounted() {
+			for(var i in this.networks) {
+		      this.contractAddress = this.networks[i].address
+		    }
+		    console.log(this.contractAddress)
+		}
 
 	}
 </script>

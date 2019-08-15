@@ -8,19 +8,18 @@
 				color="white"
 				:hover="true"
 				>
-				<v-container grid-list-xs>
+				<v-container grid-list-xs :fluid="false">
 					<v-layout wrap>
 						<v-flex xs1>
 							<v-card-title>{{functionInfo.name}}()</v-card-title>
 						</v-flex>
 						<v-flex xs1 offset-xs10>
-							<v-card-title>
-								<v-btn 
-								v-if="functionInfo.stateMutability == 'view'" 
-								id="unclickableButton" @click.stop="call">call</v-btn>
-								<v-btn v-else id="unclickableButton"
-								@click.stop="sendTransaction">send</v-btn>
-							</v-card-title>
+							
+							<v-btn 
+							v-if="functionInfo.stateMutability == 'view'" 
+							id="unclickableButton" @click.stop="call">call</v-btn>
+							<v-btn v-else id="unclickableButton"
+							@click.stop="sendTransaction">send</v-btn>
 						</v-flex>
 						<v-flex v-if="functionInfo.inputs.length != 0" xs12>
 							<FunctionInput :inputs="functionInfo.inputs" ref="inputChild"></FunctionInput>

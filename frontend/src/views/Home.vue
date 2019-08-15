@@ -2,17 +2,12 @@
   <v-app>
     <v-container grid-list-xs>
       <v-layout wrap>
-        <v-flex xs-12>
-          <v-card
-          :outline="true"
-          :hover="false"
-          dark>
-          Contracts
-          </v-card>
           </v-flex>
-          <v-flex xs12>
-          <Contract
-          :contract="contractABI" :address="contractAddress"></Contract>
+          <v-flex xs10 offset-xs1>
+          <Contract v-for="contract in contracts"
+          :name ="contract.contractName"
+          :contract="contract.abi" 
+          :networks="contract.networks"></Contract>
         </v-flex>
       </v-layout>
     </v-container>
@@ -21,24 +16,17 @@
 
 <script>
 import Contract from '../components/Contract.vue'
-import json from './../../../build/contracts/loyaltyProgram.json'
+//import json from './../../../build/contracts/loyaltyProgram.json'
+import contracts from './../../contract.json'
 export default {
   components: {
     Contract
   },
   data:() => ({
-    contractABI: json.abi,
-    contractAddress:json.networks
-  }),
-  mounted() {
-
-   // console.log(this.contractAddress)
-   for(var i in this.contractAddress) {
-      const networkId = i
-      this.contractAddress = this.contractAddress[i].address
-   }
+    contracts: contracts,
     
-  }
+  })
+
 };
 </script>
 
