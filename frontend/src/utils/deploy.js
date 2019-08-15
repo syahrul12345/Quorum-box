@@ -10,6 +10,7 @@ const axios = require('axios')
 export const send = async(functionInfo,contractAddress,parameters) => {
 	try {
 		const paramArray = []
+		console.log(paramArray)
 		parameters.forEach(item => {
 			paramArray.push(item.data)
 		})
@@ -21,13 +22,18 @@ export const send = async(functionInfo,contractAddress,parameters) => {
 	}
 	
 	//send encoded function to the server where it will sign it
-	
-	
-
 }
 
 
-export const call = async(functionInfo) => {
+export const call = async(functionInfo,contractAddress) => {
+	try{
+		const encodedFunction = web3.eth.abi.encodeFunctionSignature(functionInfo)
+		const payload = {"contractAddress":contractAddress,"data":encodedFunction}
+		return axios.post('http://localhost:3000/call',payload)
+	} catch (ex) {
+		return (ex.toString())
+	}
+	
 
 }
 //web3.eth.isSyncing().then(console.log)

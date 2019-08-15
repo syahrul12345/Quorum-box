@@ -50,8 +50,23 @@ app.post('/send',async(req,res) => {
 		res.send(ex.toString())
 		//res.send("No payload to send transaction")
 	}
-	
-		
+})
+
+app.post('/call',async(req,res) => {
+	try{
+		const body = req.body
+		web3.eth.call({
+			to:body.contractAddress,
+			data:body.data
+		}).then((result) => {
+			const converted = web3.utils.hexToAscii(result)
+			console.log(converted)
+			res.send(converted)
+		})
+	}catch(ex) {
+		console.log(ex.toString())
+		res.send(ex.toString())
+	}
 })
 
 

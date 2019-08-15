@@ -17,12 +17,10 @@
 	</v-container>
 </template>
 <script>
-	import Call from './Call.vue'
 	import Tabbed from './Tabbed.vue'
 	export default {
 		props:['name','contract','networks'],
 		components: {
-			Call,
 			Tabbed
 		},
 		data() {
@@ -34,7 +32,6 @@
 			for(var i in this.networks) {
 		      this.contractAddress = this.networks[i].address
 		    }
-		    console.log(this.contractAddress)
 		}
 
 	}

@@ -1,6 +1,6 @@
 <template>
 	<v-layout shrink align-center>
-		<v-flex xs1>
+		<v-flex xs2>
 			{{input.name}}
 		</v-flex>
 		<v-flex xs4>
