@@ -4,7 +4,7 @@
 **/
 
 module.exports = {
-	mnemonic="YOUR_MNEMONIC",
-	rpc="YOUR_RPC",
+	mnemonic:"YOUR_MNEMONIC",
+	rpc:"YOUR_RPC",
 	explorer:"YOUR_EXPLORER"
 }
