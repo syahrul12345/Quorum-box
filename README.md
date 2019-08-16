@@ -12,6 +12,13 @@ Input your mnemonic and Quoroum node RPC into this file. To create your own node
 
 To run Quorum nodes locally, head over to truffle's Quorum documentation [here](https://www.trufflesuite.com/docs/truffle/getting-started/working-with-quorum)
 
+## Dependencies
+Install all dependencies
+```
+npm install
+```
+
+
 ## Contract deployment
 
 Simply run
@@ -24,12 +31,15 @@ Make sure to have included your mnemonic,rpc and explorer url (if using Chainsta
 ## Deploying front end
 
 The frontend application is built using VueJS. You will have to build it first.
+NOTE: Before building the front end, please migrate all your contracts. You have to install dependencies if this is the first time running the front end application
 ```
 cd frontend
+npm install
 npm run build
 ```
 
-the `/dist/` folder should appear in the project root. Go to the project root and execute `start.js`
+The `/dist/` folder should appear in the project root. Go to the project root and execute `start.js`
+
 
 ```
 node start.js
