@@ -13,7 +13,7 @@
 				>
 				<v-container grid-list-xl v-if="tab.name == 'interact'">
 					<v-layout wrap>
-						<v-flex xs12 v-for="call in contractABI">
+						<v-flex xs12 v-for="(call , index) in contractABI" :key="index">
 							<Function :functionInfo = "call" :contractAddress ="contractAddress"></Function>
 						</v-flex>
 					</v-layout>
@@ -49,6 +49,7 @@
 				return item.type === "function"
 			})
 		}
+
 	}
 </script>
 <style></style>

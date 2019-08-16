@@ -10,7 +10,7 @@
 					<div><p style="padding-left: 10px;font-size:20px"> Deployed at: {{contractAddress}} </p></div>
 					
 					<Tabbed
-					:contract="contract" :contractAddress="contractAddress"></Tabbed>
+					:contract="contract" :contractAddress="contractAddress" :key="name"></Tabbed>
 				</v-card>
 			</v-flex>
 		</v-layout>
@@ -28,7 +28,12 @@
 				contractAddress:null 
 			}
 		},
-		mounted() {
+		created() {
+			for(var i in this.networks) {
+		      this.contractAddress = this.networks[i].address
+		    }
+		},
+		updated() {
 			for(var i in this.networks) {
 		      this.contractAddress = this.networks[i].address
 		    }

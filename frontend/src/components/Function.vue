@@ -133,6 +133,9 @@
 					})
 				}
 				
+			},
+			updated() {
+				console.log("function info")
 			}
 			
 		}
