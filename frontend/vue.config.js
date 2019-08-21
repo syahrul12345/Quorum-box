@@ -2,7 +2,7 @@ const fs = require('fs-extra')
 const webpack = require('webpack')
 const path = require('path')
 
-loyalty = fs.readFileSync('./../build/contracts/loyaltyProgram.json')
+//loyalty = fs.readFileSync('./../build/contracts/loyaltyProgram.json')
 
 module.exports = {
   outputDir: '../dist',
